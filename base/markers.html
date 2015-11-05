@@ -1,0 +1,46 @@
+<?php
+$replace = array(
+	'{G}' => '<img width=15px src=/HMI/res/manaLarge/G.jpg>',
+	'{W}' => '<img width=15px src=/HMI/res/manaLarge/W.jpg>',
+ 	'{U}' => '<img width=15px src=/HMI/res/manaLarge/U.jpg>',
+ 	'{R}' => '<img width=15px src=/HMI/res/manaLarge/R.jpg>',
+	'{B}' => '<img width=15px src=/HMI/res/manaLarge/B.jpg>',
+  	'{X}' => '<img width=15px src=/HMI/res/manaLarge/X.jpg>',
+  	'{1}' => '<img width=15px src=/HMI/res/manaLarge/1.jpg>',
+  	'{2}' => '<img width=15px src=/HMI/res/manaLarge/2.jpg>',
+  	'{3}' => '<img width=15px src=/HMI/res/manaLarge/3.jpg>',
+  	'{4}' => '<img width=15px src=/HMI/res/manaLarge/4.jpg>',
+  	'{5}' => '<img width=15px src=/HMI/res/manaLarge/5.jpg>',
+  	'{T}' => '<img width=15px src=/HMI/res/tap.jpg>',
+  	'#_' => '<i>',
+  	'_#' => '</i>',
+  	'&#163' => '<p>'
+);
+$colorArray = array(
+	'G' => 'Green',
+	'W' => 'White',
+	'R' => 'Red',
+	'B' => 'Black',
+	'L' => 'Land',
+	'S' => 'Scheme',
+	'U' => 'Blue'
+);
+$rulingTable = array(
+	'&#163' => '<p>'
+);
+$abilityArray = array(
+	'?' => '-'
+);
+
+$mid = $_GET['mid'];
+if($mid == "") {
+	$color = str_replace(array_keys($colorArray),array_values($colorArray), $row['Ncolor']);
+} else {
+	$color = str_replace(array_keys($replace),array_values($replace), $row['Ncolor']);
+}
+	$manacost = str_replace(array_keys($replace),array_values($replace), $row['Nmanacost']);
+	$ability = str_replace(array_keys($replace),array_values($replace), $row['Nability']);
+	$ability = str_replace(array_keys($abilityArray),array_values($abilityArray), $ability);
+	$flavor = str_replace(array_keys($replace),array_values($replace), $row['Nflavor']);
+	$ruling = str_replace(array_keys($rulingTable),array_values($rulingTable), $row['Nruling']);
+?>
